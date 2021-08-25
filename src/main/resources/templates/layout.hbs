@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{#block "title"}}Wildlife Tracker{{/block}}</title>
+
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
+    <link rel="stylesheet" href="/app.css">
+</head>
+<body>
+<ul class="nav nav-tabs">
+    <li role="presentation"><a href="/home">Home</a></li>
+    <li role="presentation"><a href="/sightings"> Sightings</a></li>
+    <li role="presentation"><a href="/form">Rangers</a></li>
+</ul>
+
+<div class="dropdown">
+    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+        Type of Animal
+    </a>
+
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+        <li><a class="dropdown-item" href="#">Action</a></li>
+        <li><a class="dropdown-item" href="#">Another action</a></li>
+        <li><a class="dropdown-item" href="#">Something else here</a></li>
+    </ul>
+</div>
+
+<div class="container">
+    <!--begin main template-->
+    <div>
+        <h1>Welcome <strong>Sighted any endangered animals? </strong> </h1>
+    </div>
+    <div class="page-header p-4">
+    </div>
+
+    <div class="col-md-12">
+        {{#block "content"}}
+        {{/block}}
+
+    </div>
+</div>
+<!--end main template-->
+{{#block "footer"}}
+    </body>
+    </html>
+{{/block}}
