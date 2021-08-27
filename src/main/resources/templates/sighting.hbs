@@ -1,0 +1,20 @@
+{{#partial "title" }}
+    Sighting
+{{/partial}}
+
+
+{{#partial "content"}}
+{{#each animal}}
+    <div class="sighting">
+            <h3>Ranger Name:{{ranger.name}}</h3>
+            <h3>Animal Name:{{animal.name}}</h3>
+            <h3>Age:{{animal.age}}</h3>
+            <h3>Health:{{animal.health}}</h3>
+            <h3>Location:{{animal.location}}</h3>
+
+        </div>
+{{/each}}
+
+{{/partial}}
+
+{{> layout.hbs}}
