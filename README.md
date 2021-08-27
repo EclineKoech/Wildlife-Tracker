@@ -15,7 +15,7 @@ An application that allows Rangers to track wildlife sightings in the area.
 # Behavior-Driven Development(BDD)
 * As a user i should be able to add new animal sightings.
 * As a user i should be able to add endangered animals.
-* As a user i should be able to view heros sighted animals.
+* As a user i should be able to view sighted animals.
 
 # Technologies Used
 * Java
