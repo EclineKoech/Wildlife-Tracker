@@ -4,19 +4,19 @@ import org.sql2o.Connection;
 import org.sql2o.Sql2oException;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class EndangeredAnimal extends Animal implements DatabaseManagement {
-  private String name;
   private int id;
-  private String health;
-  private String age;
+  private String name;
   private String location;
   public static ArrayList<EndangeredAnimal> endangeredAnimal = new ArrayList<>();
-  private String ranger_name;
 
 
-  public EndangeredAnimal(String name, String health, String age) {
+
+  public EndangeredAnimal(String name, String location) {
+    super();
     this.name = name;
     endangeredAnimal.add(this);
     this.id = endangeredAnimal.size();
@@ -44,21 +44,6 @@ public class EndangeredAnimal extends Animal implements DatabaseManagement {
     this.name = name;
   }
 
-  public String getHealth() {
-    return health;
-  }
-
-  public void setHealth(String health) {
-    this.health = health;
-  }
-
-  public String getAge() {
-    return age;
-  }
-
-  public void setAge(String age) {
-    this.age = age;
-  }
 
   public String getLocation() {
     return location;
@@ -76,12 +61,12 @@ public class EndangeredAnimal extends Animal implements DatabaseManagement {
     EndangeredAnimal.endangeredAnimal = endangeredAnimal;
   }
 
-//  public static List<EndangeredAnimal> all() {
-//    String sql = "SELECT * FROM animals";
-//    try (Connection con = (Connection) DB.sql2o.open()) {
-//      return con.createQuery(sql).executeAndFetch(EndangeredAnimal.class);
-//    }
-//  }
+  public static List<Animal> all() {
+    String sql = "SELECT * FROM animals";
+    try (Connection con = (Connection) DB.sql2o.open()) {
+      return con.createQuery(sql).executeAndFetch(Animal.class);
+    }
+  }
 
   public static EndangeredAnimal find(int id) {
     try (Connection con = DB.sql2o.open()) {
@@ -93,31 +78,16 @@ public class EndangeredAnimal extends Animal implements DatabaseManagement {
     }
   }
 
-  public String getRanger_name() {
-    return ranger_name;
-  }
-
-  public void setRanger_name(String ranger_name) {
-    this.ranger_name = ranger_name;
-  }
-
   public String getName() {
     return name;
   }
 
-  public int getId() {
-    return id;
-  }
-
   public void save() {
     try (Connection con = (Connection) DB.sql2o.open()) {
-      String sql = "INSERT INTO endangeredAnimals (name, health, age, location, ranger_name) VALUES (:name, :health, :age, :location, :ranger_name )";
+      String sql = "INSERT INTO animals (name, health, age, location, ranger_name) VALUES (:name, :health, :age, :location, :ranger_name )";
       this.id = (int) con.createQuery(sql, true)
               .addParameter("name", this.name)
-              .addParameter("health", this.health)
-              .addParameter("age", this.age)
               .addParameter("location", this.location)
-              .addParameter("ranger_name", this.ranger_name)
               .executeUpdate()
               .getKey();
     }

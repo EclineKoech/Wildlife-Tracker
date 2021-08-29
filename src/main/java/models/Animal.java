@@ -26,7 +26,11 @@ public class Animal {
 
   }
 
+  public Animal(String cecil, String cat, String adult, String amboseli, String okay) {
+  }
+
   public Animal() {
+
   }
 
   @Override

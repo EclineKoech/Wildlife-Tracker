@@ -36,7 +36,13 @@
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
-            <version>9.4.1208</version>
+            <version>42.2.22</version>
+        </dependency>
+
+        <dependency>
+            <groupId>postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>9.0-801.jdbc4</version>
         </dependency>
         <dependency>
             <groupId>org.sql2o</groupId>
@@ -84,7 +90,7 @@
                 <configuration>
                     <jdkVersion>1.8</jdkVersion>
                     <!-- Change this to YOUR application name! -->
-                    <appName>endangered-life-tracker</appName>
+                    <appName>endangerd-life-tracker</appName>
                     <processTypes>
                         <web>java -jar target/my-app-1.0-jar-with-dependencies.jar</web>
                     </processTypes>
