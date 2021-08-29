@@ -8,7 +8,7 @@ public class DatabaseRule extends ExternalResource {
 
   @Override
   protected void before() {
-    Sql2o sql2o = new Sql2o("jdbc:postgresql://localhost:5432/wildlife_tracker","ecline", "12345");
+    Sql2o sql2o = new Sql2o("jdbc4:postgresql://localhost:5432/wildlife_tracker","ecline", "12345");
   }
   @Override
   protected void after() {
