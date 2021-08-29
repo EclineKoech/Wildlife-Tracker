@@ -1,4 +1,6 @@
 import models.Sighting;
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 
@@ -8,6 +10,16 @@ public class SightingTest {
 
   @Rule
   public DatabaseRule databaseRule = new DatabaseRule();
+
+  @After
+  public void tearDown() throws Exception {
+
+  }
+
+  @Before
+  public void setUp() throws Exception {
+
+  }
 
   @Test
   public void sighting_instantiatesCorrectly_true(){

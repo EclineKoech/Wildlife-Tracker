@@ -4,7 +4,6 @@ import org.sql2o.Connection;
 import org.sql2o.Sql2oException;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
 public class EndangeredAnimal extends Animal implements DatabaseManagement {
@@ -77,12 +76,12 @@ public class EndangeredAnimal extends Animal implements DatabaseManagement {
     EndangeredAnimal.endangeredAnimal = endangeredAnimal;
   }
 
-  public static List<EndangeredAnimal> all() {
-    String sql = "SELECT * FROM animals";
-    try (Connection con = (Connection) DB.sql2o.open()) {
-      return con.createQuery(sql).executeAndFetch(EndangeredAnimal.class);
-    }
-  }
+//  public static List<EndangeredAnimal> all() {
+//    String sql = "SELECT * FROM animals";
+//    try (Connection con = (Connection) DB.sql2o.open()) {
+//      return con.createQuery(sql).executeAndFetch(EndangeredAnimal.class);
+//    }
+//  }
 
   public static EndangeredAnimal find(int id) {
     try (Connection con = DB.sql2o.open()) {
@@ -132,7 +131,7 @@ public class EndangeredAnimal extends Animal implements DatabaseManagement {
               .executeUpdate();
       connection.createQuery(sql).executeUpdate();
     } catch (Sql2oException error) {
-      System.out.println("error::: " + error);
+      System.out.println("This is an error: " + error);
     }
 
   }

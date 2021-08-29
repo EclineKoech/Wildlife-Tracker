@@ -62,7 +62,7 @@ public class Sighting{
   }
 
   public void save() {
-    try (Connection con = DB.sql2o.open()) {
+    try (org.sql2o.Connection con = DB.sql2o.open()) {
       String sql = "INSERT INTO sighting(name, timestamp) VALUES (:name, now());";
       con.createQuery(sql)
               .addParameter("name", this.ranger_name)
@@ -71,9 +71,9 @@ public class Sighting{
       System.out.println("error: " + error);
     }
   }
-  public static void clearAll(){
-    try(Connection connection= DB.sql2o.open()){
-      String sql ="DELETE FROM sighting *";
+  public static  void clearAll() throws Sql2oException {
+    try (Connection connection = DB.sql2o.open()){
+      String sql = "DELETE FROM sighting *";
       connection.createQuery(sql).executeUpdate();
     }
   }

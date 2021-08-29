@@ -1,11 +1,14 @@
+import models.Animal;
 import models.EndangeredAnimal;
+import org.junit.Rule;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class EndangeredAnimalTest {
-
+  @Rule
+  public DatabaseRule databaseRule = new DatabaseRule();
 
   @Test
   public void endangeredAnimal_instantiatesCorrectly_true(){
@@ -36,7 +39,7 @@ public class EndangeredAnimalTest {
   public void save_assignsIdToEndangeredAnimal() {
     EndangeredAnimal endangeredAnimal = new EndangeredAnimal("dog","okay","young");
     endangeredAnimal.save();
-    EndangeredAnimal savedEndangeredAnimal = EndangeredAnimal.all().get(0);
+    Animal savedEndangeredAnimal = EndangeredAnimal.all().get(0);
     assertEquals(savedEndangeredAnimal.getId(),endangeredAnimal.getId());
   }
   @Test

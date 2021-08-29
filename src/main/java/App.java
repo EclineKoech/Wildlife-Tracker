@@ -1,5 +1,4 @@
 import models.Animal;
-import models.EndangeredAnimal;
 import models.Sighting;
 import spark.ModelAndView;
 import spark.template.handlebars.HandlebarsTemplateEngine;
@@ -31,18 +30,21 @@ public class App {
     get("/sighting", (request, response) -> {
       Map<String,Object> model = new HashMap<>();
       model.put("sighting", Sighting.getAll());
-      model.put("animal", EndangeredAnimal.all());
+//      model.put("animal", EndangeredAnimal.all());
       return new ModelAndView(model, "sighting.hbs");
     }, new HandlebarsTemplateEngine());
     post("/sighting", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
-      String rangerName = request.queryParams("ranger_name");
+      String rangerName = request.queryParams("ranger");
       String animalName = request.queryParams("animal_name");
-      int age = Integer.parseInt(request.queryParams("age"));
-      String location = request.queryParams("location");
+      String age = request.queryParams("age");
+      String type = request.queryParams("type");
       String health = request.queryParams("health");
-      Animal animal = new Animal(rangerName, animalName, age, location, health);
-      model.put("animal", animal);
+      String location = request.queryParams("location");
+     Animal animal = new Animal(rangerName, animalName, age, type, health, location);
+     animal.save();
+     model.put("animal", Animal.all());
+//      model.put("animal", EndangeredAnimal.all());
       return new ModelAndView(model, "sighting.hbs");
     }, new HandlebarsTemplateEngine());
   }

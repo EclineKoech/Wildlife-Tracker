@@ -12,36 +12,48 @@
                 <div class="col-md-6">
                     <div class="p-3 border bg-light">
                         <h2 class="text-center">Record Your Sightings</h2>
-                        <form action='/sighting' method="post">
+                        <form action='/sighting' method="POST">
                             <div class="form-group" class="sightings">
                                 <label for="ranger_name">Ranger Name</label>
-                                <input id="ranger_name" name="ranger_name" class="form-control" type="text">
+                                <input id="ranger_name" name="ranger" class="form-control" type="text">
                             </div>
                             <div class="form-group">
                                 <label for="animal_name"> Animal Name</label>
                                 <input id="animal_name" name="animal_name" class="form-control" type="text">
                             </div>
                             <div class="form-group">
-                                <label for="age"> Animal Age</label>
-                                <select id='age' class="form-control" name='age'>
-                                    <option value="" disabled selected>Select Age</option>
-                                    <option value="{{Adult}}">Adult</option>
-                                    <option value="{{Young}}">Young</option>
-                                    <option value="{{Newborn}}">Newborn</option>
+                                <label for="health">Animal Type</label>
+                                <select class='form-control' id="type" name='type'>
+                                    <option class="text-grey" value="" disabled selected>Select Animal Type</option>
+                                    <option>Normal</option>
+                                    <option>Endangered</option>
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="location">Location</label>
-                                <input id="location" name="location" class="form-control" type="text">
+                                <label for="age"> Animal Age</label>
+                                <select id='age' class="form-control" name='age'>
+                                    <option value="" disabled selected>Select Age</option>
+                                    <option >Adult</option>
+                                    <option>Young</option>
+                                    <option>Newborn</option>
+                                </select>
                             </div>
                             <div class="form-group">
                                 <label for="health">Animal Health</label>
-<!--                                <input id="health" name="health" class="form-control" type="text">-->
                                 <select class='form-control' id="health" name='health'>
                                     <option class="text-grey" value="" disabled selected>Select Health</option>
-                                    <option value="{{Healthy}}">Healthy</option>
-                                    <option value="{{Okay}}">Average</option>
-                                    <option value="{{Ill}}">Ill</option>
+                                    <option>Healthy</option>
+                                    <option>Average</option>
+                                    <option>Ill</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="health">Location</label>
+                                <select class='form-control' id="location" name='location'>
+                                    <option class="text-grey" value="" disabled selected>Select Location</option>
+                                    <option>Zone A</option>
+                                    <option>Near The River</option>
+                                    <option>NE Quadrant</option>
                                 </select>
                             </div>
                             <div>
